@@ -218,4 +218,3 @@ class EchelleSpectrum(object):
                                     for sp in self.orders]))
 
         return self.orders[min_ind]
-

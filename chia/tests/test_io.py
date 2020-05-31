@@ -3,7 +3,7 @@ import numpy as np
 
 from astropy.utils.data import download_file
 
-from ..io import EchelleSpectrum, Spectrum
+from ..io import EchelleSpectrum
 
 lkca4_id = "1x3nIg1P5tYFQqJrwEpQU11XQOs3ImH3v"
 proxima_id = "1I7E1x1XRjcxXNQXiuaajb_Jz7Wn2N_Eo"
@@ -45,4 +45,3 @@ def test_continuum_normalize(url):
     # distributed about unity):
     for order in spectrum.orders:
         assert abs(np.median(order.flux) - 1) < 1
-
