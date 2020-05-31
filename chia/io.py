@@ -177,7 +177,7 @@ class EchelleSpectrum(object):
 
         return ax
 
-    def continuum_normalize(self, bins=100, order=10):
+    def continuum_normalize(self, bins=5, order=2):
         """
         Normalize the continuum in each echelle order to unity.
 
@@ -194,7 +194,7 @@ class EchelleSpectrum(object):
 
             # Bin spectrum, take max in wide bins to approximate the continuum
             bs = binned_statistic(wl - wl.mean(), spectrum.flux, bins=bins,
-                                  statistic='max')
+                                  statistic='median')
             bincenters = 0.5 * (bs.bin_edges[1:] + bs.bin_edges[:-1])
 
             fit = np.polyval(np.polyfit(bincenters, bs.statistic, order),
